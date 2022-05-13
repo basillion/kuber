@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myk8s-deployment
+  labels:
+    app: myk8s
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: myk8s
+  template:
+    metadata:
+      labels:
+        app: myk8s
+    spec:
+      containers:
+      - name: myk8s
+        image: basillion/myk8s:0.01
+        ports:
+        - containerPort: 80
